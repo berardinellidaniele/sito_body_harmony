@@ -9,24 +9,27 @@ export function Sponsors() {
   const sponsors = [
     {
       name: "Panatta",
-      logo: "/placeholder.svg?height=80&width=160",
+      image: "/panatta.png",
       description: "Attrezzature professionali",
       color: "from-red-500 to-red-600",
       delay: "delay-200",
+      bgColor: "bg-white", // Sfondo bianco per il logo rosso
     },
     {
       name: "Prozis",
-      logo: "/placeholder.svg?height=80&width=160",
+      image: "/prozis.png",
       description: "Integratori premium",
-      color: "from-blue-500 to-blue-600",
+      color: "from-gray-800 to-black",
       delay: "delay-400",
+      bgColor: "bg-black", // Sfondo nero per il logo bianco
     },
     {
       name: "Marina Calcio",
-      logo: "/placeholder.svg?height=80&width=160",
+      image: "/marinacalcio.png",
       description: "Squadra locale",
-      color: "from-green-500 to-green-600",
+      color: "from-blue-500 to-blue-600",
       delay: "delay-600",
+      bgColor: "bg-gradient-to-br from-blue-50 to-white", // Sfondo chiaro per il logo blu
     },
   ]
 
@@ -64,11 +67,11 @@ export function Sponsors() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {sponsors.map((sponsor, index) => (
             <div
               key={index}
-              className={`group relative bg-black/60 backdrop-blur-sm p-8 rounded-2xl border border-orange-500/20 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:rotate-1 text-center ${sponsor.delay} ${
+              className={`group relative bg-black/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-orange-500/20 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:rotate-1 ${sponsor.delay} ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               }`}
             >
@@ -77,26 +80,34 @@ export function Sponsors() {
                 className={`absolute inset-0 bg-gradient-to-br ${sponsor.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-all duration-500`}
               ></div>
 
-              {/* Logo Container */}
-              <div className="relative bg-white p-6 rounded-xl mb-6 transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
+              {/* Image Container - Ottimizzato per i loghi */}
+              <div
+                className={`relative aspect-square ${sponsor.bgColor} overflow-hidden flex items-center justify-center p-6`}
+              >
                 <img
-                  src={sponsor.logo || "/placeholder.svg"}
-                  alt={`Logo ${sponsor.name}`}
-                  className="max-h-16 max-w-full object-contain mx-auto"
+                  src={sponsor.image || "/placeholder.svg"}
+                  alt={`${sponsor.name} Partner`}
+                  className="max-w-full max-h-full object-contain transition-all duration-500 group-hover:scale-110"
+                  style={{
+                    filter: sponsor.name === "Prozis" ? "none" : "none", // Mantieni i colori originali
+                  }}
                 />
 
                 {/* Floating Icon */}
-                <div className="absolute -top-2 -right-2 bg-orange-500 rounded-full p-2 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300 delay-200">
+                <div className="absolute top-4 right-4 bg-orange-500 rounded-full p-2 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300 delay-200">
                   <Award className="h-4 w-4 text-white" />
                 </div>
+
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              {/* Brand Info */}
-              <div className="space-y-3">
-                <h3 className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300">
+              {/* Content Section */}
+              <div className="p-6 space-y-3">
+                <h3 className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300 text-center">
                   {sponsor.name}
                 </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-medium">
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-medium text-center">
                   {sponsor.description}
                 </p>
 

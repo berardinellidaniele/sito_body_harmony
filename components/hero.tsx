@@ -3,7 +3,7 @@
 import React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Dumbbell, Users, Zap, Target, TrendingUp } from "lucide-react"
+import { Dumbbell, Users, Zap, Target, TrendingUp, Clock, Home } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export function Hero() {
@@ -11,8 +11,8 @@ export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
 
   const stats = [
-    { number: "500+", label: "Atleti Soddisfatti", icon: Users },
-    { number: "15+", label: "Anni di Esperienza", icon: Dumbbell },
+    { number: "1000m²", label: "Spazio Totale", icon: Home },
+    { number: "365", label: "Giorni all'Anno", icon: Clock },
     { number: "50+", label: "Macchinari Panatta", icon: Dumbbell },
     { number: "24/7", label: "Supporto Disponibile", icon: Target },
   ]
@@ -53,12 +53,18 @@ export function Hero() {
         }}
       ></div>
 
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-orange-400 rounded-full animate-bounce delay-1000"></div>
-        <div className="absolute bottom-32 left-20 w-2 h-2 bg-orange-600 rounded-full animate-ping delay-2000"></div>
-        <div className="absolute bottom-20 right-10 w-4 h-4 bg-orange-500 rounded-full animate-pulse delay-3000"></div>
+   
+
+      {/* SEMPRE APERTI Badge - Mobile Top */}
+      <div className="absolute top-20 left-4 right-4 lg:hidden z-20">
+        <div
+          className={`bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-center font-bold text-sm shadow-lg border-2 border-white/20 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+          }`}
+        >
+          <Clock className="inline-block h-4 w-4 mr-2" />
+          APERTI 7/7 - ANCHE FESTIVITÀ!
+        </div>
       </div>
 
       {/* Floating Stats */}
@@ -119,9 +125,28 @@ export function Hero() {
           }`}
         >
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            La palestra di Marina di Montemarciano per il body building serio.{" "}
-            <span className="text-orange-400 font-semibold">Attrezzature professionali</span> e{" "}
-            <span className="text-orange-400 font-semibold">ambiente dedicato</span> per raggiungere i tuoi obiettivi.
+            La palestra per il body building serio,{" "}
+            <span className="text-orange-400 font-semibold">1000m² di spazio</span> con{" "}
+            <span className="text-orange-400 font-semibold">attrezzature professionali</span> per raggiungere i tuoi
+            obiettivi.
+          </p>
+        </div>
+
+        {/* SEMPRE APERTI Highlight Box */}
+        <div
+          className={`bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm border-2 border-orange-500/50 rounded-2xl p-6 mb-8 max-w-2xl mx-auto transition-all duration-1000 delay-800 hover:scale-105 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <div className="flex items-center justify-center mb-3">
+            <Clock className="h-8 w-8 text-orange-400 mr-3 animate-pulse" />
+            <h3 className="text-2xl md:text-3xl font-bold text-white">SEMPRE APERTI</h3>
+            <Clock className="h-8 w-8 text-orange-400 ml-3 animate-pulse" />
+          </div>
+          <p className="text-orange-300 font-semibold text-lg">7 giorni su 7 - 365 giorni all'anno</p>
+          <p className="text-gray-300 mt-2">
+            <span className="text-orange-400 font-semibold">Anche nelle festività!</span> La nostra palestra non si ferma
+            mai
           </p>
         </div>
 
@@ -137,7 +162,7 @@ export function Hero() {
             onClick={() => scrollToSection("membership")}
           >
             <Zap className="h-5 w-5 mr-2" />
-            Prenota una Prova
+            Scopri i prezzi
           </Button>
           <Button
             size="lg"
@@ -152,10 +177,10 @@ export function Hero() {
         {/* Feature Cards with Staggered Animation */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
           <div
-            className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 delay-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
+  className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
+    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  }`}
+>
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-full mb-4 shadow-lg">
               <Dumbbell className="h-8 w-8 text-white" />
             </div>
@@ -163,23 +188,23 @@ export function Hero() {
             <p className="text-gray-400 text-center leading-relaxed">Macchinari professionali di ultima generazione</p>
           </div>
 
-          <div
-            className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 delay-1200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
+         <div
+  className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
+    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  }`}
+>
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-full mb-4 shadow-lg">
-              <Target className="h-8 w-8 text-white" />
+              <Home className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2 text-center">Ambiente Professionale</h3>
-            <p className="text-gray-400 text-center leading-relaxed">Spazio dedicato al body building serio</p>
+            <h3 className="text-xl font-semibold text-white mb-2 text-center">1000m² di Spazio</h3>
+            <p className="text-gray-400 text-center leading-relaxed">Ampio spazio dedicato al body building</p>
           </div>
 
-          <div
-            className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 delay-1400 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
+         <div
+  className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
+    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  }`}
+>
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-full mb-4 shadow-lg">
               <Users className="h-8 w-8 text-white" />
             </div>

@@ -30,7 +30,7 @@ ${formData.message}
     `.trim()
 
     // Crea il link mailto
-    const mailtoLink = `mailto:srvnsberard@gmail.com?subject=Richiesta informazioni Body Harmony&body=${encodeURIComponent(emailBody)}`
+    const mailtoLink = `mailto:newbodyharmony@libero.it?subject=Richiesta informazioni Body Harmony&body=${encodeURIComponent(emailBody)}`
 
     // Apri il client email
     window.location.href = mailtoLink
@@ -155,10 +155,10 @@ ${formData.message}
                   <div>
                     <p className="text-white font-semibold mb-1">Email</p>
                     <a
-                      href="mailto:srvnsberard@gmail.com"
+                      href="mailto:newbodyharmony@libero.it"
                       className="text-gray-300 hover:text-orange-500 transition-colors text-lg"
                     >
-                      srvnsberard@gmail.com
+                      newbodyharmony@libero.it
                     </a>
                   </div>
                 </div>

@@ -10,17 +10,17 @@ export function Benefits() {
     {
       icon: Shield,
       title: "Sicurezza Garantita",
-      description: "Ambiente sicuro con attrezzature certificate e manutenute",
+      description: "Ambiente sicuro con attrezzature certificate e armadietti",
     },
     {
       icon: Clock,
       title: "Orari Flessibili",
-      description: "Aperti 6 giorni su 7 con orari estesi per ogni esigenza",
+      description: "Aperti 7 giorni su 7 con orari estesi per ogni esigenza",
     },
     {
       icon: Target,
       title: "Focus Body Building",
-      description: "Specializzati esclusivamente nel body building professionale",
+      description: "Specializzati principalmente nel body building professionale",
     },
     {
       icon: Trophy,
@@ -42,7 +42,7 @@ export function Benefits() {
             Perché Scegliere <span className="text-orange-500">Body Harmony</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Scopri tutti i vantaggi di allenarti nel nostro centro ufficiale Panatta
+            Scopri tutti i vantaggi di allenarti nella nostra palestra
           </p>
         </div>
 
@@ -52,13 +52,32 @@ export function Benefits() {
             return (
               <div
                 key={index}
-                className="bg-gray-900 p-8 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300 hover:transform hover:scale-105"
+                className="group relative bg-gradient-to-br from-gray-900 via-black to-gray-900 p-[1px] rounded-2xl hover:p-[2px] transition-all duration-500 hover:transform hover:scale-105 hover:rotate-1"
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-orange-500/10 rounded-full mb-6 mx-auto">
-                  <IconComponent className="h-8 w-8 text-orange-500" />
+                {/* Gradient border */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-orange-500/20 rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Inner content */}
+                <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 p-8 rounded-2xl h-full">
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm border border-orange-500/20">
+                      <IconComponent className="h-8 w-8 text-orange-500 group-hover:text-orange-400 transition-colors duration-300" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-4 text-center group-hover:text-orange-400 transition-colors duration-300">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-300 text-center leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                      {benefit.description}
+                    </p>
+                  </div>
+
+                  {/* Corner decorations */}
+                  <div className="absolute top-4 left-4 w-3 h-3 border-l-2 border-t-2 border-orange-500/30 group-hover:border-orange-500 transition-colors duration-300 rounded-tl-lg"></div>
+                  <div className="absolute bottom-4 right-4 w-3 h-3 border-r-2 border-b-2 border-orange-500/30 group-hover:border-orange-500 transition-colors duration-300 rounded-br-lg"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-4 text-center">{benefit.title}</h3>
-                <p className="text-gray-300 text-center leading-relaxed">{benefit.description}</p>
               </div>
             )
           })}
