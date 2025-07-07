@@ -7,7 +7,7 @@ const trainers = [
   {
     name: "Fabio Pietrobon Gobbi",
     role: "Proprietario & Head Trainer",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/fabio.svg?height=400&width=400",
     description:
       "Proprietario della palestra Body Harmony e trainer esperto con numerose vittorie in competizioni di body building.",
     achievements: [
@@ -25,7 +25,7 @@ const trainers = [
   {
     name: "Massimo Pietrobon Gobbi",
     role: "Trainer & Influencer",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/massi2.svg?height=400&width=400",
     description:
       "Trainer esperto e noto influencer nel mondo del fitness e body building, con un grande seguito sui social media.",
     achievements: [
@@ -97,7 +97,7 @@ export function Trainers() {
                 <img
                   src={trainer.image || "/placeholder.svg"}
                   alt={trainer.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                 />
 
                 {/* Social Media Overlay */}

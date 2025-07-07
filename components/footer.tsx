@@ -93,10 +93,10 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="text-center">
-            <div className="text-gray-400 text-sm">© 2025 Body Harmony. Tutti i diritti riservati.</div>
+            <div className="text-gray-400 text-sm">© 2025 Daniele Berardinelli. Fatto con il ❤️ </div>
           </div>
         </div>
       </div>
-    </footer>
+    </footer> 
   )
 }

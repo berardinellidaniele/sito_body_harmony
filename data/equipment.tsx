@@ -1,64 +1,64 @@
 export const equipmentData = [
   {
-    name: "Alternate Leg Extension",
-    image: "/images/leg-extension-1.jpg",
+    name: "Power Smith Machine Dual System",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/power_smith_machine-ERpWMtj9IAJPx1n08jzQLOn1quFClx.avif",
     description:
-      "La Alternate Leg Extension è finalizzata all'isolamento dei muscoli quadricipiti femorali, permettendo un allenamento preciso e controllato per lo sviluppo della forza e della massa muscolare delle gambe.",
-    features: [
-      "Schienale regolabile in profondità gas assistito",
-      "Leve indipendenti per una esecuzione mono o bilaterale",
-      "Curva di carico fisiologica con CAM collegate alle leve",
-      "Controbilanciamento per ridurre il peso a vuoto delle leve di esercizio",
-      "Rulli di spinta regolabili",
-      "Regolazione dell'angolo di partenza",
-      "Impugnature per un inizio movimento facilitato",
-      "Optional: 4 porta pesi addizionali",
-    ],
-    targetMuscles: "Quadricipiti femorali",
+      "Macchina Smith professionale per allenare pettorali con massima sicurezza. Tre angolazioni diverse per colpire tutti i fasci muscolari",
+    targetMuscles: "Pettorali, deltoidi, tricipiti",
   },
   {
-    name: "Leg Press 45°",
-    image: "/images/leg-press.jpg",
+    name: "Climber Rossopuro Touch",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rossopuro_climb-fmw8R5WNZJjqZquIcerns66WvdNWOI.avif",
     description:
-      "La Leg Press 45° è una macchina fondamentale per lo sviluppo della forza e della massa muscolare di gambe e glutei, permettendo di lavorare con carichi elevati in totale sicurezza.",
-    features: [
-      "Angolazione ottimale a 45° per massima efficacia",
-      "Pedana antiscivolo per sicurezza massima",
-      "Sistema di sicurezza integrato",
-      "Schienale ergonomico e supporto lombare",
-      "Carico progressivo con piastre olimpiche",
-      "Movimento fluido su cuscinetti a sfera",
-    ],
+      "Climber cardio di ultima generazione con display HD touchscreen. Perfetto per bruciare calorie e tonificare tutto il corpo",
+    targetMuscles: "Cardio, tutto il corpo",
+  },
+  {
+    name: "Power Smith Dual System Upper",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/power_smith_dual_system_upper-vlk10eXqnVUjmMIpudQ9htgyIIanoD.webp",
+    description:
+      "Specializzata per pettorali alti e spalle. Nove angolazioni regolabili per un allenamento preciso della parte superiore del corpo",
+    targetMuscles: "Pettorali superiori, deltoidi, tricipiti",
+  },
+  {
+    name: "Super Pendulum Squat",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/super_pendulum_squat-qd9NUVQbcWzgzmj1LBJSXPaPzBACJh.webp",
+    description:
+      "Movimento unico che combina squat e leg press. Ideale per sviluppare quadricipiti potenti in totale sicurezza",
     targetMuscles: "Quadricipiti, glutei, femorali",
   },
   {
-    name: "Multi Station",
-    image: "/images/multi-station-1.jpg",
+    name: "3D Abductor",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d_abductor-7ygEBqna5xVI9bds6zqbTj0TZF6S0K.webp",
     description:
-      "Stazione multifunzione Panatta che permette di eseguire diversi esercizi per la parte superiore del corpo, ottimizzando lo spazio e offrendo versatilità nell'allenamento.",
-    features: [
-      "Multipli punti di aggancio per cavi",
-      "Pulegge regolabili in altezza",
-      "Sistema di contrappesi fluido",
-      "Impugnature intercambiabili",
-      "Struttura robusta in acciaio",
-      "Design ergonomico per comfort ottimale",
-    ],
-    targetMuscles: "Pettorali, dorsali, deltoidi, braccia",
+      "Macchina innovativa per glutei e abduttori. Movimento tridimensionale per risultati superiori rispetto alle macchine tradizionali",
+    targetMuscles: "Glutei, abduttori, stabilizzatori",
   },
   {
-    name: "Squat Rack",
-    image: "/images/multi-station-2.jpg",
+    name: "Super Rowing Circular",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/super_rowing_circular-3CQ13l4IYHuFQlumR1z6ZgK9slTrk0.webp",
     description:
-      "Rack professionale per squat e esercizi con bilanciere, dotato di sistemi di sicurezza avanzati per allenamenti intensi in totale sicurezza.",
-    features: [
-      "Altezza regolabile per ogni statura",
-      "Barre di sicurezza regolabili",
-      "Struttura rinforzata per carichi pesanti",
-      "Ganci di sicurezza J-hooks",
-      "Base stabile e antiscivolo",
-      "Compatibile con bilancieri olimpici",
-    ],
-    targetMuscles: "Quadricipiti, glutei, core, stabilizzatori",
+      "Rematore con movimento circolare per dorsali spessi e definiti. Leve indipendenti per allenamento unilaterale o bilaterale",
+    targetMuscles: "Dorsali, romboidi, deltoidi posteriori",
+  },
+  {
+    name: "Hip Thrust",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hip_thrust-3iAhlyOx7F2t1JzElfD0DdlJrfiBHh.webp",
+    description:
+      "La macchina definitiva per glutei potenti. Movimento specifico per massimizzare l'attivazione dei glutei e femorali",
+    targetMuscles: "Glutei, femorali, core",
+  },
+  {
+    name: "Super Horizontal Multi Press",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/super_horizontal_multi_press-mN0Amzc83grm2n70mRLotOCaUTh0g2.webp",
+    description:
+      "Panca orizzontale con doppia impugnatura. Simula perfettamente la panca con bilanciere ma con maggiore sicurezza e controllo",
+    targetMuscles: "Pettorali, tricipiti, deltoidi anteriori",
   },
 ]
