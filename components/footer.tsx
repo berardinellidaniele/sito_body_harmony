@@ -1,11 +1,4 @@
-import { Dumbbell, Phone, Mail, MapPin, Instagram, Facebook } from "lucide-react"
-
-// TikTok Icon Component
-const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-  </svg>
-)
+import { Dumbbell, Phone, Mail, MapPin, Instagram, Facebook, Map } from "lucide-react"
 
 export function Footer() {
   return (
@@ -31,7 +24,6 @@ export function Footer() {
                 Body Harmony
               </div>
             </div>
-
             <p className="text-gray-300 leading-relaxed max-w-md text-sm">
               La palestra di Marina di Montemarciano specializzata nel body building professionale con attrezzature
               Panatta di ultima generazione.
@@ -54,7 +46,6 @@ export function Footer() {
                   071 919 8353
                 </a>
               </div>
-
               <div className="flex items-center group">
                 <Mail className="h-4 w-4 text-orange-500 mr-3 flex-shrink-0" />
                 <a
@@ -64,7 +55,6 @@ export function Footer() {
                   newbodyharmony@libero.it
                 </a>
               </div>
-
               <div className="flex items-start group">
                 <MapPin className="h-4 w-4 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div className="text-gray-300 text-sm">
@@ -84,7 +74,6 @@ export function Footer() {
               <div className="w-1 h-5 bg-gradient-to-b from-orange-500 to-red-500 rounded-full mr-2"></div>
               Orari & Social
             </h3>
-
             <div className="space-y-2 text-xs">
               <div className="flex justify-between">
                 <span className="text-gray-400">Lun - Ven:</span>
@@ -96,30 +85,35 @@ export function Footer() {
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Dom/Fest:</span>
-                <span className="text-orange-500 font-medium">09:00 - 13:00</span>
+                <span className="text-orange-500 font-medium">08:30 - 13:00</span>
               </div>
             </div>
-
             <div className="pt-2">
               <h4 className="text-sm font-medium text-gray-300 mb-3">Seguici</h4>
               <div className="flex space-x-2">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/palestrabodyharmony/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800/50 hover:bg-orange-500/20 p-2 rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-110"
                 >
                   <Instagram className="h-4 w-4 text-gray-400 hover:text-orange-500 transition-colors duration-300" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/palestrabodyharmony.ancona/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800/50 hover:bg-orange-500/20 p-2 rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-110"
                 >
                   <Facebook className="h-4 w-4 text-gray-400 hover:text-orange-500 transition-colors duration-300" />
                 </a>
                 <a
-                  href="#"
+                  href="https://maps.app.goo.gl/XrkSoSi7eNuh7hMv8"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800/50 hover:bg-orange-500/20 p-2 rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-110"
                 >
-                  <TikTokIcon className="h-4 w-4 text-gray-400 hover:text-orange-500 transition-colors duration-300" />
+                  <Map className="h-4 w-4 text-gray-400 hover:text-orange-500 transition-colors duration-300" />
                 </a>
               </div>
             </div>

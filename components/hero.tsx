@@ -11,10 +11,10 @@ export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
 
   const stats = [
-    { number: "1000m²", label: "Spazio Totale", icon: Home },
-    { number: "365", label: "Giorni all'Anno", icon: Clock },
+    { number: "1000m²", label: "Spazio totale", icon: Home },
+    { number: "365", label: "Giorni all'anno", icon: Clock },
     { number: "50+", label: "Macchinari Panatta", icon: Dumbbell },
-    { number: "24/7", label: "Supporto Disponibile", icon: Target },
+    { number: "24/7", label: "Supporto disponibile", icon: Target },
   ]
 
   const motivationalTexts = [
@@ -170,7 +170,7 @@ export function Hero() {
             onClick={() => scrollToSection("contact")}
           >
             <Target className="h-5 w-5 mr-2" />
-            Vieni a Trovarci
+            Vieni a trovarci
           </Button>
         </div>
 
@@ -196,7 +196,7 @@ export function Hero() {
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-full mb-4 shadow-lg">
               <Home className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2 text-center">1000m² di Spazio</h3>
+            <h3 className="text-xl font-semibold text-white mb-2 text-center">1000m² di spazio</h3>
             <p className="text-gray-400 text-center leading-relaxed">Ampio spazio dedicato al body building</p>
           </div>
 

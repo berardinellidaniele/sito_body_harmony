@@ -24,7 +24,7 @@ export function Benefits() {
     },
     {
       icon: Trophy,
-      title: "Trainer Esperti",
+      title: "Trainer esperti",
       description: "Staff qualificato con esperienza nelle competizioni",
     },
     {
@@ -39,7 +39,7 @@ export function Benefits() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Perché Scegliere <span className="text-orange-500">Body Harmony</span>
+            Perché scegliere <span className="text-orange-500">Body Harmony</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Scopri tutti i vantaggi di allenarti nella nostra palestra

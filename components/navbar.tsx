@@ -24,6 +24,7 @@ export function Navbar() {
     { label: "Abbonamenti", id: "membership" },
     { label: "Orari", id: "schedule" },
     { label: "Dove Siamo", id: "location" },
+    { label: "Partner", id: "sponsors" },
     { label: "Contatti", id: "contact" },
   ]
 
@@ -58,14 +59,11 @@ export function Navbar() {
                 >
                   {/* Hover background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:to-red-500/10 transition-all duration-300 rounded-lg"></div>
-
                   {/* Border gradient on hover */}
                   <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 via-transparent to-red-500/20 p-[1px]">
                     <div className="w-full h-full bg-black/50 rounded-lg"></div>
                   </div>
-
                   <span className="relative z-10">{item.label}</span>
-
                   {/* Underline effect */}
                   <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
                 </button>

@@ -376,7 +376,7 @@ export function Membership() {
 
         <div className="text-center mt-16">
           <div className="bg-gray-900 p-8 rounded-lg border border-orange-500/20 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">Hai Domande sui Nostri Abbonamenti?</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Hai domande sui nostri abbonamenti?</h3>
             <p className="text-gray-300 mb-6">
               Contattaci per ricevere informazioni dettagliate e per trovare l'abbonamento perfetto per le tue esigenze
               di allenamento.

@@ -7,8 +7,8 @@ const schedule = [
   { day: "Giovedì", hours: "08:30 - 21:00", isOpen: true },
   { day: "Venerdì", hours: "08:30 - 21:00", isOpen: true },
   { day: "Sabato", hours: "08:30 - 18:30", isOpen: true },
-  { day: "Domenica", hours: "09:00 - 13:00", isOpen: true },
-  { day: "Festività", hours: "09:00 - 13:00", isOpen: true, special: true },
+  { day: "Domenica", hours: "08:30 - 13:00", isOpen: true },
+  { day: "Festività", hours: "08:30 - 13:00", isOpen: true, special: true },
 ]
 
 export function Schedule() {

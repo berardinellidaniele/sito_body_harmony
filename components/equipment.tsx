@@ -80,8 +80,8 @@ export function Equipment() {
           </div>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 hover:text-gray-200 transition-colors duration-300 px-4 sm:px-0">
-            <span className="text-orange-400 font-semibold">Macchinari Panatta</span> di ultima generazione per il{" "}
-            <span className="text-orange-400 font-semibold">body building professionale</span>
+            <span className="text-orange-400 font-semibold">Macchinari</span> di ultima generazione per garantire un{" "}
+            <span className="text-orange-400 font-semibold">allenamento intenso</span>
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export function Equipment() {
             </Button>
           ) : (
             <div className="space-y-4">
-              <p className="text-gray-300 text-sm sm:text-base">Hai visto tutte le nostre attrezzature Panatta!</p>
+              <p className="text-gray-300 text-sm sm:text-base">Hai visto tutte le nostre nuove attrezzature Panatta!</p>
               <Button
                 onClick={() => setShowAll(false)}
                 variant="outline"
