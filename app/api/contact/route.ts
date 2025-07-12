@@ -1,83 +1,70 @@
-import { type NextRequest, NextResponse } from "next/server"
-import { Resend } from "resend"
+import { type NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export async function POST(request: NextRequest) {
-    const resend = new Resend(process.env.RESEND_API_KEY!) 
+  // 1. Verifica se la API key è presente
+  const resendApiKey = process.env.RESEND_API_KEY;
+  if (!resendApiKey) {
+    console.error("❌ RESEND_API_KEY non trovata nel process.env");
+    return NextResponse.json({ error: "API key mancante" }, { status: 500 });
+  }
+
+  const resend = new Resend(resendApiKey);
+  console.log("✅ RESEND_API_KEY caricata correttamente");
+
   try {
-    const { name, email, phone, message } = await request.json()
+    const { name, email, phone, message } = await request.json();
 
     if (!name || !email || !message) {
-      return NextResponse.json({ error: "Nome, email e messaggio sono obbligatori" }, { status: 400 })
+      console.warn("⚠️ Dati mancanti nel body:", { name, email, message });
+      return NextResponse.json(
+        { error: "Nome, email e messaggio sono obbligatori" },
+        { status: 400 }
+      );
     }
 
+    // 2. Log diagnostico invio
+    console.log("📨 Inizio invio email da:", email);
+
     const { data, error } = await resend.emails.send({
-      from: "Body Harmony Gym <onboarding@resend.dev>",
+      from: "Body Harmony Gym <onboarding@resend.dev>", // Fallback mittente sicuro
       to: ["newbodyharmony@libero.it"],
       replyTo: email,
       subject: `🏋️ Nuovo Contatto da ${name} - Body Harmony Gym`,
       html: `
-        <!DOCTYPE html>
         <html>
-        <head>
-          <meta charset="utf-8">
-          <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-            .content { background: #f9f9f9; padding: 20px; border-radius: 0 0 8px 8px; }
-            .field { margin-bottom: 15px; }
-            .label { font-weight: bold; color: #f97316; }
-            .value { margin-top: 5px; padding: 10px; background: white; border-radius: 4px; border-left: 4px solid #f97316; }
-            .footer { text-align: center; margin-top: 20px; color: #666; font-size: 12px; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>🏋️ Body Harmony Gym</h1>
-              <p>Nuova richiesta di contatto ricevuta</p>
-            </div>
-            <div class="content">
-              <div class="field">
-                <div class="label">👤 Nome:</div>
-                <div class="value">${name}</div>
-              </div>
-              
-              <div class="field">
-                <div class="label">📧 Email:</div>
-                <div class="value">${email}</div>
-              </div>
-              
-              <div class="field">
-                <div class="label">📱 Telefono:</div>
-                <div class="value">${phone || "Non fornito"}</div>
-              </div>
-              
-              <div class="field">
-                <div class="label">💬 Messaggio:</div>
-                <div class="value">${message.replace(/\n/g, "<br>")}</div>
-              </div>
-              
-              <div class="footer">
-                <p>Ricevuto il ${new Date().toLocaleString("it-IT")}</p>
-                <p>Body Harmony Gym - Via Marina, 63, Marina Di Montemarciano</p>
-              </div>
-            </div>
-          </div>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family: Arial, sans-serif;">
+          <h2 style="color:#ea580c;">🏋️ Body Harmony Gym</h2>
+          <p><strong>👤 Nome:</strong> ${name}</p>
+          <p><strong>📧 Email:</strong> ${email}</p>
+          <p><strong>📱 Telefono:</strong> ${phone || "Non fornito"}</p>
+          <p><strong>💬 Messaggio:</strong><br>${message.replace(/\n/g, "<br>")}</p>
+          <hr>
+          <small>Ricevuto il ${new Date().toLocaleString("it-IT")}</small>
         </body>
         </html>
       `,
-    })
+    });
 
     if (error) {
-  console.error("Errore Resend dettagliato:", JSON.stringify(error, null, 2))
-  return NextResponse.json({ error: error.message || "Errore nell'invio dell'email", details: error }, { status: 500 })
-}
+      console.error("❌ Errore Resend:", JSON.stringify(error, null, 2));
+      return NextResponse.json(
+        {
+          error: error.message || "Errore nell'invio dell'email",
+          details: error,
+        },
+        { status: 500 }
+      );
+    }
 
-
-    return NextResponse.json({ success: true, messageId: data?.id })
+    console.log("✅ Email inviata con successo! ID:", data?.id);
+    return NextResponse.json({ success: true, messageId: data?.id });
   } catch (error) {
-    console.error("Errore API:", error)
-    return NextResponse.json({ error: "Errore interno del server" }, { status: 500 })
+    console.error("❌ Errore API generale:", error);
+    return NextResponse.json(
+      { error: "Errore interno del server" },
+      { status: 500 }
+    );
   }
 }
