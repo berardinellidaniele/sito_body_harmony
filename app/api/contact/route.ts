@@ -7,12 +7,10 @@ export async function POST(request: NextRequest) {
   try {
     const { name, email, phone, message } = await request.json()
 
-    // Validazione base
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Nome, email e messaggio sono obbligatori" }, { status: 400 })
     }
 
-    // Invia email
     const { data, error } = await resend.emails.send({
       from: "Body Harmony Gym <noreply@palestrabodyharmony.it>", // ✅ dominio verificato
       to: ["newbodyharmony@libero.it"],
