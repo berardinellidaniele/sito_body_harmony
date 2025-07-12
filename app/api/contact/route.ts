@@ -73,9 +73,10 @@ export async function POST(request: NextRequest) {
     })
 
     if (error) {
-      console.error("Errore Resend:", error)
-      return NextResponse.json({ error: "Errore nell'invio dell'email" }, { status: 500 })
-    }
+  console.error("Errore Resend dettagliato:", JSON.stringify(error, null, 2))
+  return NextResponse.json({ error: error.message || "Errore nell'invio dell'email", details: error }, { status: 500 })
+}
+
 
     return NextResponse.json({ success: true, messageId: data?.id })
   } catch (error) {
