@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
 
     // Invia email
     const { data, error } = await resend.emails.send({
-      from: "Body Harmony Gym <noreply@bodyharmonygym.com>",
+      from: "Body Harmony Gym <noreply@palestrabodyharmony.it>", // ✅ dominio verificato
       to: ["newbodyharmony@libero.it"],
       replyTo: email,
       subject: `🏋️ Nuovo Contatto da ${name} - Body Harmony Gym`,
