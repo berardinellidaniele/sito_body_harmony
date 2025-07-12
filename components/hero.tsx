@@ -55,18 +55,6 @@ export function Hero() {
 
    
 
-      {/* SEMPRE APERTI Badge - Mobile Top */}
-      <div className="absolute top-20 left-4 right-4 lg:hidden z-20">
-        <div
-          className={`bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-center font-bold text-sm shadow-lg border-2 border-white/20 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
-          }`}
-        >
-          <Clock className="inline-block h-4 w-4 mr-2" />
-          APERTI 7/7 - ANCHE FESTIVITÀ!
-        </div>
-      </div>
-
       {/* Floating Stats */}
       <div className="absolute top-20 right-10 hidden lg:block">
         <div

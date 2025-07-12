@@ -1,12 +1,11 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Send, Phone, Mail, MapPin } from "lucide-react"
+import { Send, Phone, Mail, MapPin, CheckCircle, AlertCircle } from "lucide-react"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -15,25 +14,35 @@ export function Contact() {
     phone: "",
     message: "",
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
+    setStatus("idle")
 
-    // Crea il corpo dell'email
-    const emailBody = `
-Nome: ${formData.name}
-Email: ${formData.email}
-Telefono: ${formData.phone}
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-Messaggio:
-${formData.message}
-    `.trim()
-
-    // Crea il link mailto
-    const mailtoLink = `mailto:newbodyharmony@libero.it?subject=Richiesta informazioni Body Harmony&body=${encodeURIComponent(emailBody)}`
-
-    // Apri il client email
-    window.location.href = mailtoLink
+      if (response.ok) {
+        setStatus("success")
+        setFormData({ name: "", email: "", phone: "", message: "" })
+      } else {
+        setStatus("error")
+      }
+    } catch (error) {
+      console.error("Errore invio email:", error)
+      setStatus("error")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -60,6 +69,20 @@ ${formData.message}
           <div className="bg-black p-8 rounded-lg border border-orange-500/20">
             <h3 className="text-2xl font-bold text-white mb-6">Invia un Messaggio</h3>
 
+            {status === "success" && (
+              <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg flex items-center">
+                <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                <p className="text-green-400">Messaggio inviato con successo! Ti risponderemo presto.</p>
+              </div>
+            )}
+
+            {status === "error" && (
+              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center">
+                <AlertCircle className="h-5 w-5 text-red-500 mr-3" />
+                <p className="text-red-400">Errore nell'invio. Riprova o contattaci direttamente.</p>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -74,6 +97,7 @@ ${formData.message}
                   onChange={handleChange}
                   className="bg-gray-900 border-gray-700 text-white focus:border-orange-500 focus:ring-orange-500"
                   placeholder="Il tuo nome completo"
+                  disabled={isLoading}
                 />
               </div>
 
@@ -90,6 +114,7 @@ ${formData.message}
                   onChange={handleChange}
                   className="bg-gray-900 border-gray-700 text-white focus:border-orange-500 focus:ring-orange-500"
                   placeholder="la-tua-email@esempio.com"
+                  disabled={isLoading}
                 />
               </div>
 
@@ -105,6 +130,7 @@ ${formData.message}
                   onChange={handleChange}
                   className="bg-gray-900 border-gray-700 text-white focus:border-orange-500 focus:ring-orange-500"
                   placeholder="Il tuo numero di telefono"
+                  disabled={isLoading}
                 />
               </div>
 
@@ -121,12 +147,27 @@ ${formData.message}
                   onChange={handleChange}
                   className="bg-gray-900 border-gray-700 text-white focus:border-orange-500 focus:ring-orange-500"
                   placeholder="Scrivi qui il tuo messaggio..."
+                  disabled={isLoading}
                 />
               </div>
 
-              <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white" size="lg">
-                <Send className="h-5 w-5 mr-2" />
-                Invia Messaggio
+              <Button
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white disabled:opacity-50"
+                size="lg"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Invio in corso...
+                  </>
+                ) : ( 
+                  <>
+                    <Send className="h-5 w-5 mr-2" />
+                    Invia Messaggio
+                  </>
+                )}
               </Button>
             </form>
           </div>
