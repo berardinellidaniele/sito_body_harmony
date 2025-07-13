@@ -4,23 +4,16 @@ import { Resend } from "resend";
 export async function POST(request: NextRequest) {
   console.log("🔁 Richiesta ricevuta a /api/contact");
 
-  // 1. ✅ Verifica API Key
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey) {
-    console.error("❌ RESEND_API_KEY non trovata nel process.env");
-    return NextResponse.json(
-      { error: "API key mancante nel backend" },
-      { status: 500 }
-    );
+    console.error("❌ RESEND_API_KEY non trovata");
+    return NextResponse.json({ error: "API key mancante nel backend" }, { status: 500 });
   }
 
-  console.log("✅ RESEND_API_KEY presente.");
-
-  // 2. ✅ Inizializza Resend
   const resend = new Resend(resendApiKey);
+  console.log("✅ RESEND inizializzato");
 
   try {
-    // 3. ✅ Ricevi il JSON dal body
     const bodyText = await request.text();
     console.log("📨 Raw body ricevuto:", bodyText);
 
@@ -33,27 +26,47 @@ export async function POST(request: NextRequest) {
     }
 
     const { name, email, phone, message } = parsed;
-    console.log("📨 Dati parsati:", { name, email, phone, message });
+    console.log("✅ Dati parsati:", { name, email, phone, message });
 
-    // 4. ⚠️ Verifica i campi obbligatori
     if (!name || !email || !message) {
-      console.warn("⚠️ Dati obbligatori mancanti.");
+      console.warn("⚠️ Dati mancanti");
+      return NextResponse.json({ error: "Nome, email e messaggio sono obbligatori" }, { status: 400 });
+    }
+
+    const { data, error } = await resend.emails.send({
+      from: "Body Harmony Gym <info@palestrabodyharmony.it>",
+      to: ["newbodyharmony@libero.it"],
+      replyTo: email,
+      subject: `🏋️ Nuovo Contatto da ${name} - Body Harmony Gym`,
+      html: `
+        <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family: Arial, sans-serif;">
+          <h2 style="color:#ea580c;">🏋️ Body Harmony Gym</h2>
+          <p><strong>👤 Nome:</strong> ${name}</p>
+          <p><strong>📧 Email:</strong> ${email}</p>
+          <p><strong>📱 Telefono:</strong> ${phone || "Non fornito"}</p>
+          <p><strong>💬 Messaggio:</strong><br>${message.replace(/\n/g, "<br>")}</p>
+          <hr>
+          <small>Ricevuto il ${new Date().toLocaleString("it-IT")}</small>
+        </body>
+        </html>
+      `,
+    });
+
+    if (error) {
+      console.error("❌ Errore Resend:", JSON.stringify(error, null, 2));
       return NextResponse.json(
-        { error: "Nome, email e messaggio sono obbligatori" },
-        { status: 400 }
+        { error: error.message || "Errore invio", details: error },
+        { status: 500 }
       );
     }
 
-    // 5. ✨ Simulazione invio (NO RESEND VERA)
-    console.log("📤 Simulazione invio... Tutto OK fino a qui.");
-    const data = { id: "simulated-id-12345" };
-    return NextResponse.json({ success: true, messageId: data.id });
+    console.log("✅ Email inviata. ID:", data?.id);
+    return NextResponse.json({ success: true, messageId: data?.id });
 
-  } catch (error) {
-    console.error("❌ Errore inatteso:", error);
-    return NextResponse.json(
-      { error: "Errore interno del server", details: String(error) },
-      { status: 500 }
-    );
+  } catch (err) {
+    console.error("❌ Errore inatteso:", err);
+    return NextResponse.json({ error: "Errore interno", details: String(err) }, { status: 500 });
   }
 }
