@@ -2,6 +2,8 @@ import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export async function POST(request: NextRequest) {
+  console.log("🔁 Richiesta ricevuta a /api/contact");
+
   // 1. ✅ Verifica API Key
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey) {
@@ -19,8 +21,19 @@ export async function POST(request: NextRequest) {
 
   try {
     // 3. ✅ Ricevi il JSON dal body
-    const { name, email, phone, message } = await request.json();
-    console.log("📨 Dati ricevuti:", { name, email, phone, message });
+    const bodyText = await request.text();
+    console.log("📨 Raw body ricevuto:", bodyText);
+
+    let parsed;
+    try {
+      parsed = JSON.parse(bodyText);
+    } catch (err) {
+      console.error("❌ JSON malformato:", err);
+      return NextResponse.json({ error: "JSON malformato" }, { status: 400 });
+    }
+
+    const { name, email, phone, message } = parsed;
+    console.log("📨 Dati parsati:", { name, email, phone, message });
 
     // 4. ⚠️ Verifica i campi obbligatori
     if (!name || !email || !message) {
@@ -31,47 +44,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 5. 📤 Invio email
-    const { data, error } = await resend.emails.send({
-      from: "Body Harmony Gym <onboarding@resend.dev>", // 👈 Cambia dopo la verifica DNS
-      to: ["newbodyharmony@libero.it"],
-      replyTo: email,
-      subject: `🏋️ Nuovo Contatto da ${name} - Body Harmony Gym`,
-      html: `
-        <html>
-        <head><meta charset="utf-8"></head>
-        <body style="font-family: Arial, sans-serif;">
-          <h2 style="color:#ea580c;">🏋️ Body Harmony Gym</h2>
-          <p><strong>👤 Nome:</strong> ${name}</p>
-          <p><strong>📧 Email:</strong> ${email}</p>
-          <p><strong>📱 Telefono:</strong> ${phone || "Non fornito"}</p>
-          <p><strong>💬 Messaggio:</strong><br>${message.replace(/\n/g, "<br>")}</p>
-          <hr>
-          <small>Ricevuto il ${new Date().toLocaleString("it-IT")}</small>
-        </body>
-        </html>
-      `,
-    });
+    // 5. ✨ Simulazione invio (NO RESEND VERA)
+    console.log("📤 Simulazione invio... Tutto OK fino a qui.");
+    const data = { id: "simulated-id-12345" };
+    return NextResponse.json({ success: true, messageId: data.id });
 
-    // 6. 🛑 Errore di invio
-    if (error) {
-      console.error("❌ Errore da Resend:", JSON.stringify(error, null, 2));
-      return NextResponse.json(
-        {
-          error: error.message || "Errore nell'invio dell'email",
-          details: error,
-        },
-        { status: 500 }
-      );
-    }
-
-    // 7. ✅ Successo
-    console.log("✅ Email inviata. ID:", data?.id);
-    return NextResponse.json({ success: true, messageId: data?.id });
   } catch (error) {
-    console.error("❌ Errore nel blocco catch:", error);
+    console.error("❌ Errore inatteso:", error);
     return NextResponse.json(
-      { error: "Errore interno del server" },
+      { error: "Errore interno del server", details: String(error) },
       { status: 500 }
     );
   }
