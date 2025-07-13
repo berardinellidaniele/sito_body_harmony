@@ -2,32 +2,38 @@ import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export async function POST(request: NextRequest) {
-  // 1. Verifica se la API key è presente
+  // 1. ✅ Verifica API Key
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey) {
     console.error("❌ RESEND_API_KEY non trovata nel process.env");
-    return NextResponse.json({ error: "API key mancante" }, { status: 500 });
+    return NextResponse.json(
+      { error: "API key mancante nel backend" },
+      { status: 500 }
+    );
   }
 
+  console.log("✅ RESEND_API_KEY presente.");
+
+  // 2. ✅ Inizializza Resend
   const resend = new Resend(resendApiKey);
-  console.log("✅ RESEND_API_KEY caricata correttamente");
 
   try {
+    // 3. ✅ Ricevi il JSON dal body
     const { name, email, phone, message } = await request.json();
+    console.log("📨 Dati ricevuti:", { name, email, phone, message });
 
+    // 4. ⚠️ Verifica i campi obbligatori
     if (!name || !email || !message) {
-      console.warn("⚠️ Dati mancanti nel body:", { name, email, message });
+      console.warn("⚠️ Dati obbligatori mancanti.");
       return NextResponse.json(
         { error: "Nome, email e messaggio sono obbligatori" },
         { status: 400 }
       );
     }
 
-    // 2. Log diagnostico invio
-    console.log("📨 Inizio invio email da:", email);
-
+    // 5. 📤 Invio email
     const { data, error } = await resend.emails.send({
-      from: "Body Harmony Gym <onboarding@resend.dev>", // Fallback mittente sicuro
+      from: "Body Harmony Gym <onboarding@resend.dev>", // 👈 Cambia dopo la verifica DNS
       to: ["newbodyharmony@libero.it"],
       replyTo: email,
       subject: `🏋️ Nuovo Contatto da ${name} - Body Harmony Gym`,
@@ -47,8 +53,9 @@ export async function POST(request: NextRequest) {
       `,
     });
 
+    // 6. 🛑 Errore di invio
     if (error) {
-      console.error("❌ Errore Resend:", JSON.stringify(error, null, 2));
+      console.error("❌ Errore da Resend:", JSON.stringify(error, null, 2));
       return NextResponse.json(
         {
           error: error.message || "Errore nell'invio dell'email",
@@ -58,10 +65,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log("✅ Email inviata con successo! ID:", data?.id);
+    // 7. ✅ Successo
+    console.log("✅ Email inviata. ID:", data?.id);
     return NextResponse.json({ success: true, messageId: data?.id });
   } catch (error) {
-    console.error("❌ Errore API generale:", error);
+    console.error("❌ Errore nel blocco catch:", error);
     return NextResponse.json(
       { error: "Errore interno del server" },
       { status: 500 }
