@@ -13,7 +13,7 @@ export function About() {
           setIsVisible(true)
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     const element = document.getElementById("about")
@@ -74,12 +74,12 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            <span className="inline-block">Chi</span>{" "}
-            <span className="text-orange-500 inline-block">Siamo</span>
+            <span className="inline-block">Chi</span> <span className="text-orange-500 inline-block">Siamo</span>
           </h2>
+          <h3 className="sr-only">Body Harmony - Centro Ufficiale Panatta Marina di Montemarciano</h3>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Body Harmony è il centro ufficiale Panatta di Marina di Montemarciano, dedicato al body
-            building professionale.
+            Body Harmony è il centro ufficiale Panatta di Marina di Montemarciano, dedicato al body building
+            professionale.
           </p>
         </div>
 
@@ -102,11 +102,7 @@ export function About() {
             {/* Logo e scritta */}
             <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-2 sm:space-y-0 sm:space-x-4 mb-6 sm:mb-8">
               <div className="relative flex items-center">
-                <img
-                  src="/logopanatta.png"
-                  className="h-12 sm:h-16 object-contain"
-                  alt="Logo Panatta"
-                />
+                <img src="/logopanatta.png" className="h-12 sm:h-16 object-contain" alt="Logo Panatta" />
               </div>
               <div className="text-orange-500 text-lg sm:text-2xl font-bold text-center sm:text-left">
                 CENTRO UFFICIALE
@@ -120,8 +116,8 @@ export function About() {
             </p>
 
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              Non offriamo corsi di gruppo, ma ci concentriamo su quello che sappiamo fare meglio: fornire gli
-              strumenti e l'ambiente perfetto per il body building serio e professionale.
+              Non offriamo corsi di gruppo, ma ci concentriamo su quello che sappiamo fare meglio: fornire gli strumenti
+              e l'ambiente perfetto per il body building serio e professionale.
             </p>
 
             {/* Filosofia */}

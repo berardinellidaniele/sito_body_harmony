@@ -229,7 +229,11 @@ export function Contact() {
 
                 <div className="space-y-6">
                   {/* Telefono */}
-                  <div className="flex items-start group cursor-pointer">
+                  <div
+                    className="flex items-start group cursor-pointer"
+                    itemScope
+                    itemType="https://schema.org/ContactPoint"
+                  >
                     <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mr-4 group-hover:bg-orange-500/20 transition-colors">
                       <Phone className="h-6 w-6 text-orange-500" />
                     </div>
@@ -238,6 +242,7 @@ export function Contact() {
                       <a
                         href="tel:071 919 8353"
                         className="text-gray-300 hover:text-orange-500 transition-colors text-lg font-medium"
+                        itemProp="telephone"
                       >
                         071 919 8353
                       </a>
@@ -245,7 +250,11 @@ export function Contact() {
                   </div>
 
                   {/* Email */}
-                  <div className="flex items-start group cursor-pointer">
+                  <div
+                    className="flex items-start group cursor-pointer"
+                    itemScope
+                    itemType="https://schema.org/ContactPoint"
+                  >
                     <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mr-4 group-hover:bg-orange-500/20 transition-colors">
                       <Mail className="h-6 w-6 text-orange-500" />
                     </div>
@@ -254,6 +263,7 @@ export function Contact() {
                       <a
                         href="mailto:newbodyharmony@libero.it"
                         className="text-gray-300 hover:text-orange-500 transition-colors text-lg font-medium"
+                        itemProp="email"
                       >
                         newbodyharmony@libero.it
                       </a>
@@ -261,18 +271,21 @@ export function Contact() {
                   </div>
 
                   {/* Indirizzo */}
-                  <div className="flex items-start group">
+                  <div className="flex items-start group" itemScope itemType="https://schema.org/PostalAddress">
                     <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mr-4 group-hover:bg-orange-500/20 transition-colors">
                       <MapPin className="h-6 w-6 text-orange-500" />
                     </div>
                     <div>
                       <p className="text-white font-semibold mb-1">Indirizzo</p>
                       <p className="text-gray-300 text-lg leading-relaxed">
-                        Via Marina, 63
+                        <span itemProp="streetAddress">Via Marina, 63</span>
                         <br />
-                        Marina Di Montemarciano, Marche
+                        <span itemProp="addressLocality">Marina Di Montemarciano</span>,{" "}
+                        <span itemProp="addressRegion">Marche</span>
                         <br />
-                        <span className="text-orange-400">Italy 60018</span>
+                        <span className="text-orange-400">
+                          Italy <span itemProp="postalCode">60018</span>
+                        </span>
                       </p>
                     </div>
                   </div>

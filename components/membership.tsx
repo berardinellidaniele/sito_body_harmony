@@ -130,6 +130,7 @@ export function Membership() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             I Nostri <span className="text-orange-500">Abbonamenti</span>
           </h2>
+          <h3 className="sr-only">Prezzi Palestra Body Building Marina di Montemarciano</h3>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Scegli l'abbonamento più adatto alle tue esigenze e inizia il tuo percorso di body building
           </p>
@@ -137,7 +138,8 @@ export function Membership() {
           {/* Nota Iscrizione */}
           <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 max-w-2xl mx-auto mb-8">
             <p className="text-gray-300">
-              <span className="text-orange-400 font-semibold">Nota:</span> Gli abbonamenti, ad esclusione del giornaliero, richiedono una{" "}
+              <span className="text-orange-400 font-semibold">Nota:</span> Gli abbonamenti, ad esclusione del
+              giornaliero, richiedono una{" "}
               <span className="text-orange-400 font-semibold">quota di iscrizione di €25</span> (una tantum)
             </p>
           </div>

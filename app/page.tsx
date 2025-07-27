@@ -11,23 +11,29 @@ import { Location } from "@/components/location"
 import { Benefits } from "@/components/benefits"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { LocalBusinessSchema } from "@/components/seo-schema"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black">
-      <Navbar />
-      <Hero />
-      <About />
-      <Benefits />
-      <Equipment />
-      <Gallery />
-      <Trainers />
-      <Membership />
-      <Schedule />
-      <Location />
-      <Sponsors />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <LocalBusinessSchema />
+      <div className="min-h-screen bg-black">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Benefits />
+          <Equipment />
+          <Gallery />
+          <Trainers />
+          <Membership />
+          <Schedule />
+          <Location />
+          <Sponsors />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   )
 }

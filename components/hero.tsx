@@ -53,8 +53,6 @@ export function Hero() {
         }}
       ></div>
 
-   
-
       {/* Floating Stats */}
       <div className="absolute top-20 right-10 hidden lg:block">
         <div
@@ -92,6 +90,9 @@ export function Hero() {
               <Zap className="absolute -top-2 -right-8 h-8 w-8 text-orange-400 animate-bounce delay-2000" />
             </span>
           </h1>
+
+          {/* SEO Hidden heading */}
+          <h2 className="sr-only">Palestra Body Building Marina di Montemarciano - Centro Ufficiale Panatta</h2>
         </div>
 
         {/* Animated Tagline */}
@@ -133,8 +134,8 @@ export function Hero() {
           </div>
           <p className="text-orange-300 font-semibold text-lg">7 giorni su 7 - 365 giorni all'anno</p>
           <p className="text-gray-300 mt-2">
-            <span className="text-orange-400 font-semibold">Anche nelle festività!</span> La nostra palestra non si ferma
-            mai
+            <span className="text-orange-400 font-semibold">Anche nelle festività!</span> La nostra palestra non si
+            ferma mai
           </p>
         </div>
 
@@ -165,10 +166,10 @@ export function Hero() {
         {/* Feature Cards with Staggered Animation */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
           <div
-  className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
-    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-  }`}
->
+            className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-full mb-4 shadow-lg">
               <Dumbbell className="h-8 w-8 text-white" />
             </div>
@@ -176,11 +177,11 @@ export function Hero() {
             <p className="text-gray-400 text-center leading-relaxed">Macchinari professionali di ultima generazione</p>
           </div>
 
-         <div
-  className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
-    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-  }`}
->
+          <div
+            className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-full mb-4 shadow-lg">
               <Home className="h-8 w-8 text-white" />
             </div>
@@ -188,11 +189,11 @@ export function Hero() {
             <p className="text-gray-400 text-center leading-relaxed">Ampio spazio dedicato al body building</p>
           </div>
 
-         <div
-  className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
-    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-  }`}
->
+          <div
+            className={`flex flex-col items-center p-6 bg-black/40 backdrop-blur-sm rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-500 hover:transform hover:scale-105 hover:bg-black/60 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-full mb-4 shadow-lg">
               <Users className="h-8 w-8 text-white" />
             </div>
