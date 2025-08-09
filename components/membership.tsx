@@ -131,8 +131,11 @@ export function Membership() {
             I Nostri <span className="text-orange-500">Abbonamenti</span>
           </h2>
           <h3 className="sr-only">Prezzi Palestra Body Building Marina di Montemarciano</h3>
+          <h4 className="sr-only">Abbonamenti Body Harmony - Offerte e Promozioni</h4>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Scegli l'abbonamento più adatto alle tue esigenze e inizia il tuo percorso di body building
+            Scegli l'<strong>abbonamento palestra</strong> più adatto alle tue esigenze e inizia il tuo percorso di{" "}
+            <strong>body building professionale</strong> a <strong>Marina di Montemarciano</strong> con{" "}
+            <strong>Body Harmony</strong>
           </p>
 
           {/* Nota Iscrizione */}

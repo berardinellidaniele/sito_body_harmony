@@ -77,12 +77,14 @@ export function Equipment() {
               </span>{" "}
               <span className="text-orange-500">Attrezzature</span>
             </h2>
-            <h3 className="sr-only">Attrezzature Panatta Professionali per Body Building</h3>
+            <h3 className="sr-only">Attrezzature Panatta Professionali per Body Building Marina di Montemarciano</h3>
+            <h4 className="sr-only">Macchinari Panatta di Ultima Generazione - Body Harmony</h4>
           </div>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 hover:text-gray-200 transition-colors duration-300 px-4 sm:px-0">
-            <span className="text-orange-400 font-semibold">Macchinari Panatta</span> di ultima generazione per
-            garantire un <span className="text-orange-400 font-semibold">allenamento intenso e professionale</span>
+            <strong>Macchinari Panatta</strong> di ultima generazione per garantire un{" "}
+            <span className="text-orange-400 font-semibold">allenamento intenso e professionale</span> nella{" "}
+            <strong>migliore palestra di body building</strong> delle <strong>Marche</strong>
           </p>
         </div>
 
@@ -101,6 +103,9 @@ export function Equipment() {
                   src={equipment.image || "/placeholder.svg"}
                   alt={`${equipment.name} - Attrezzatura Panatta per ${equipment.targetMuscles} - Body Harmony Marina di Montemarciano`}
                   className="w-full h-full object-contain transition-all duration-700 group-hover:scale-110 p-3 sm:p-4"
+                  loading="lazy"
+                  width="350"
+                  height="350"
                 />
 
                 {/* Subtle Overlay on Hover */}
@@ -134,7 +139,8 @@ export function Equipment() {
             <Button
               onClick={() => setShowAll(true)}
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto"
+              className="bg-orange-600 hover:bg-orange-700 text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto"
+              aria-label="Visualizza tutte le attrezzature Panatta disponibili"
             >
               <Wrench className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
               Scopri Tutte le Attrezzature
@@ -148,6 +154,7 @@ export function Equipment() {
                 onClick={() => setShowAll(false)}
                 variant="outline"
                 className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white bg-transparent transform hover:scale-105 transition-all duration-300 w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base"
+                aria-label="Mostra meno attrezzature"
               >
                 Mostra Meno
               </Button>

@@ -91,8 +91,11 @@ export function Hero() {
             </span>
           </h1>
 
-          {/* SEO Hidden heading */}
+          {/* SEO Optimized headings */}
           <h2 className="sr-only">Palestra Body Building Marina di Montemarciano - Centro Ufficiale Panatta</h2>
+          <h3 className="sr-only">
+            Body Harmony: La Migliore Palestra delle Marche con Trainer Esperti Fabio e Massimo Pietrobon Gobbi
+          </h3>
         </div>
 
         {/* Animated Tagline */}
@@ -114,10 +117,11 @@ export function Hero() {
           }`}
         >
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            La palestra per il body building serio,{" "}
-            <span className="text-orange-400 font-semibold">1000m² di spazio</span> con{" "}
-            <span className="text-orange-400 font-semibold">attrezzature professionali</span> per raggiungere i tuoi
-            obiettivi.
+            La <strong>migliore palestra di body building</strong> a <strong>Marina di Montemarciano</strong>,{" "}
+            <span className="text-orange-400 font-semibold">centro ufficiale Panatta</span> con{" "}
+            <span className="text-orange-400 font-semibold">1000m² di spazio</span> e{" "}
+            <span className="text-orange-400 font-semibold">attrezzature professionali</span>. Trainer esperti{" "}
+            <strong>Fabio e Massimo Pietrobon Gobbi</strong> per raggiungere i tuoi obiettivi.
           </p>
         </div>
 

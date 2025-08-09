@@ -57,6 +57,8 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
+          <h3 className="sr-only">Contatti Body Harmony Marina di Montemarciano</h3>
+          <h4 className="sr-only">Come Contattare la Migliore Palestra delle Marche</h4>
           <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500/10 rounded-full mb-6">
             <MessageSquare className="h-8 w-8 text-orange-500" />
           </div>
@@ -66,9 +68,12 @@ export function Contact() {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Hai domande sui nostri servizi o vuoi iniziare il tuo percorso di body building?
+            Hai domande sui nostri servizi o vuoi iniziare il tuo percorso di{" "}
+            <strong>body building professionale</strong> a <strong>Marina di Montemarciano</strong>?
             <br className="hidden sm:block" />
-            <span className="text-orange-400 font-medium">Siamo qui per aiutarti!</span>
+            <span className="text-orange-400 font-medium">
+              Contatta <strong>Body Harmony</strong> - siamo qui per aiutarti!
+            </span>
           </p>
         </div>
 

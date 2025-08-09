@@ -42,6 +42,7 @@ export function Footer() {
                 <a
                   href="tel:071 919 8353"
                   className="text-gray-300 hover:text-orange-500 transition-colors duration-300 text-sm"
+                  aria-label="Chiama Body Harmony al numero 071 919 8353"
                 >
                   071 919 8353
                 </a>
@@ -51,6 +52,7 @@ export function Footer() {
                 <a
                   href="mailto:newbodyharmony@libero.it"
                   className="text-gray-300 hover:text-orange-500 transition-colors duration-300 text-sm"
+                  aria-label="Invia email a Body Harmony"
                 >
                   newbodyharmony@libero.it
                 </a>
@@ -95,6 +97,7 @@ export function Footer() {
                   href="https://www.instagram.com/palestrabodyharmony/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Segui Body Harmony su Instagram"
                   className="bg-gray-800/50 hover:bg-orange-500/20 p-2 rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-110"
                 >
                   <Instagram className="h-4 w-4 text-gray-400 hover:text-orange-500 transition-colors duration-300" />
@@ -103,6 +106,7 @@ export function Footer() {
                   href="https://www.facebook.com/palestrabodyharmony.ancona/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Segui Body Harmony su Facebook"
                   className="bg-gray-800/50 hover:bg-orange-500/20 p-2 rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-110"
                 >
                   <Facebook className="h-4 w-4 text-gray-400 hover:text-orange-500 transition-colors duration-300" />
@@ -111,6 +115,7 @@ export function Footer() {
                   href="https://maps.app.goo.gl/XrkSoSi7eNuh7hMv8"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visualizza Body Harmony su Google Maps"
                   className="bg-gray-800/50 hover:bg-orange-500/20 p-2 rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-110"
                 >
                   <Map className="h-4 w-4 text-gray-400 hover:text-orange-500 transition-colors duration-300" />

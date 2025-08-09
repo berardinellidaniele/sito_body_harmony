@@ -77,9 +77,13 @@ export function About() {
             <span className="inline-block">Chi</span> <span className="text-orange-500 inline-block">Siamo</span>
           </h2>
           <h3 className="sr-only">Body Harmony - Centro Ufficiale Panatta Marina di Montemarciano</h3>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Body Harmony è il centro ufficiale Panatta di Marina di Montemarciano, dedicato al body building
-            professionale.
+          <h4 className="sr-only">Palestra Body Building Professionale con Attrezzature Panatta</h4>
+          <h5 className="sr-only">1000 metri quadri dedicati al Body Building nelle Marche</h5>
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+            <strong>Body Harmony</strong> è la <strong>migliore palestra di body building</strong> a{" "}
+            <strong>Marina di Montemarciano</strong>, <strong>centro ufficiale Panatta</strong> con{" "}
+            <strong>attrezzature professionali</strong> di ultima generazione e un ambiente dedicato esclusivamente agli
+            appassionati di questo sport nelle <strong>Marche</strong>.
           </p>
         </div>
 

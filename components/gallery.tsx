@@ -135,11 +135,13 @@ export function Gallery() {
               <div className="aspect-video bg-gray-800 relative overflow-hidden">
                 <img
                   src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
+                  alt={`${image.alt} - Body Harmony Marina di Montemarciano`}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                   loading="lazy"
                   decoding="async"
                   fetchPriority={index < 3 ? "high" : "auto"}
+                  width="382"
+                  height="215"
                 />
 
                 {/* Simple Overlay with View Icon */}
@@ -162,7 +164,8 @@ export function Gallery() {
             <Button
               onClick={() => setShowAll(true)}
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base"
+              className="bg-orange-600 hover:bg-orange-700 text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base"
+              aria-label="Visualizza tutte le foto della palestra Body Harmony"
             >
               <Grid3X3 className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
               Visualizza Tutte le Foto
@@ -174,6 +177,7 @@ export function Gallery() {
                 onClick={() => setShowAll(false)}
                 variant="outline"
                 className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white bg-transparent transform hover:scale-105 transition-all duration-300 w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base"
+                aria-label="Mostra meno foto"
               >
                 Mostra Meno
               </Button>
@@ -190,6 +194,7 @@ export function Gallery() {
             <button
               onClick={closeLightbox}
               className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110"
+              aria-label="Chiudi galleria"
             >
               <X className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
@@ -198,6 +203,7 @@ export function Gallery() {
             <button
               onClick={prevImage}
               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110"
+              aria-label="Immagine precedente"
             >
               <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
@@ -205,6 +211,7 @@ export function Gallery() {
             <button
               onClick={nextImage}
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110"
+              aria-label="Immagine successiva"
             >
               <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
@@ -213,7 +220,7 @@ export function Gallery() {
             <div className="relative max-w-full max-h-full">
               <img
                 src={displayedImages[selectedImage].src || "/placeholder.svg"}
-                alt={displayedImages[selectedImage].alt}
+                alt={`${displayedImages[selectedImage].alt} - Body Harmony Marina di Montemarciano`}
                 className="max-w-full max-h-full object-contain rounded-lg"
                 loading="eager"
                 decoding="async"

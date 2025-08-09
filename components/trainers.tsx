@@ -76,6 +76,8 @@ export function Trainers() {
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
+          <h3 className="sr-only">Fabio e Massimo Pietrobon Gobbi - Trainer Esperti Body Harmony</h3>
+          <h4 className="sr-only">Personal Trainer Professionali Marina di Montemarciano</h4>
           <div className="flex items-center justify-center mb-6">
             <Star className="h-8 w-8 text-orange-500 mr-3 animate-pulse" />
             <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -84,8 +86,10 @@ export function Trainers() {
             <Star className="h-8 w-8 text-orange-500 ml-3 animate-pulse" />
           </div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            <span className="text-orange-400 font-semibold">Professionisti esperti</span> che ti guideranno nel tuo
-            percorso di <span className="text-orange-400 font-semibold">body building</span>
+            <span className="text-orange-400 font-semibold">Trainer professionali esperti</span>{" "}
+            <strong>Fabio e Massimo Pietrobon Gobbi</strong> che ti guideranno nel tuo percorso di{" "}
+            <span className="text-orange-400 font-semibold">body building professionale</span> a{" "}
+            <strong>Marina di Montemarciano</strong>
           </p>
         </div>
 
@@ -106,26 +110,38 @@ export function Trainers() {
               <div className="relative h-80 bg-gray-800 overflow-hidden">
                 <img
                   src={trainer.image || "/placeholder.svg"}
-                  alt={trainer.name}
+                  alt={`${trainer.name} - ${trainer.role} - Body Harmony Marina di Montemarciano`}
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  width="400"
+                  height="320"
                 />
 
                 {/* Social Media Overlay */}
                 <div className="absolute top-4 right-4 flex space-x-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                   <a
                     href={trainer.social.tiktok}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Segui ${trainer.name} su TikTok`}
                     className="bg-black/80 backdrop-blur-sm p-3 rounded-full border border-orange-500/30 hover:border-orange-500 hover:bg-orange-500/20 transition-all duration-300 transform hover:scale-110"
                   >
                     <TikTokIcon className="h-5 w-5 text-white hover:text-orange-400" />
                   </a>
                   <a
                     href={trainer.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Segui ${trainer.name} su Instagram`}
                     className="bg-black/80 backdrop-blur-sm p-3 rounded-full border border-orange-500/30 hover:border-orange-500 hover:bg-orange-500/20 transition-all duration-300 transform hover:scale-110"
                   >
                     <Instagram className="h-5 w-5 text-white hover:text-orange-400" />
                   </a>
                   <a
                     href={trainer.social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Segui ${trainer.name} su Facebook`}
                     className="bg-black/80 backdrop-blur-sm p-3 rounded-full border border-orange-500/30 hover:border-orange-500 hover:bg-orange-500/20 transition-all duration-300 transform hover:scale-110"
                   >
                     <Facebook className="h-5 w-5 text-white hover:text-orange-400" />
