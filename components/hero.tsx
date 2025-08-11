@@ -3,7 +3,6 @@
 import Image from "next/image"
 import { Dumbbell, Users, Zap, Target, TrendingUp, Clock, Home } from "lucide-react"
 import { useEffect, useState } from "react"
-import heroBg from "@/public/images/gym-interior-1.jpg" // import locale = blur + dimensioni note a build
 
 export function Hero() {
   const [currentStat, setCurrentStat] = useState(0)
@@ -38,7 +37,7 @@ export function Hero() {
       {/* Background ottimizzato (LCP) */}
       <div className="absolute inset-0 -z-[1]">
         <Image
-          src={heroBg}
+          src="/images/gym-interior-1.jpg"
           alt=""
           role="presentation"
           fill
