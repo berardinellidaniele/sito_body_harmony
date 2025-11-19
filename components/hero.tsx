@@ -37,16 +37,15 @@ export function Hero() {
       {/* Background ottimizzato (LCP) */}
       <div className="absolute inset-0 -z-[1]">
         <Image
-          src="/images/gym-interior-1.jpg"
-          alt=""
-          role="presentation"
-          fill
-          priority
-          placeholder="blur"
-          sizes="100vw"
-          className="object-cover opacity-30 select-none"
-          draggable={false}
-        />
+  src="/images/gym-interior-1.jpg"
+  alt=""
+  role="presentation"
+  fill
+  priority
+  sizes="100vw"
+  className="object-cover opacity-30 select-none"
+  draggable={false}
+/>
       </div>
 
       {/* Layer scuro sopra l'immagine */}
